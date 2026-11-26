@@ -16,6 +16,9 @@ import {
 } from './data/courses';
 import { ResilientImage } from './components/ResilientImage';
 import { TiltCourseCard } from './components/TiltCourseCard';
+import { AnimatedCounter } from './components/AnimatedCounter';
+import { BrandPreloader } from './components/BrandPreloader';
+import { VelocityMarquee } from './components/VelocityMarquee';
 
 type FilterTab = 'All' | 'AI & Code' | 'Business & Ads' | 'Creative';
 
@@ -130,6 +133,7 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
+      <BrandPreloader />
       <div
         id="top"
         className="min-h-screen bg-white text-black flex flex-col font-sans overflow-x-clip"
@@ -330,25 +334,8 @@ export default function App() {
             </div>
           </section>
 
-          {/* White-Background Kinetic Marquee Strip with Black Typography */}
-          <div
-            aria-hidden="true"
-            className="bg-white text-black border-y border-black/15 py-4 overflow-hidden select-none"
-          >
-            <div className="animate-marquee flex items-center gap-10">
-              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => (
-                <div
-                  key={`${item}-${idx}`}
-                  className="flex items-center gap-10 whitespace-nowrap"
-                >
-                  <span className="font-display text-xs sm:text-sm font-extrabold tracking-[0.18em] text-black">
-                    {item}
-                  </span>
-                  <span className="text-black/35 font-mono text-xs">/</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Scroll-Velocity Kinetic Marquee Strip */}
+          <VelocityMarquee items={MARQUEE_ITEMS} />
 
           {/* Pure White Premium Courses Section */}
           <section
@@ -460,7 +447,7 @@ export default function App() {
                     And This Is Just The Start
                   </p>
                   <p className="font-display text-5xl sm:text-6xl font-extrabold tracking-tighter text-black tabular-nums">
-                    6,000+
+                    <AnimatedCounter target={6000} suffix="+" />
                   </p>
                   <p className="text-sm font-semibold text-black">
                     Total Courses Inside Our Vault

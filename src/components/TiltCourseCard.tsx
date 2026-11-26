@@ -89,13 +89,29 @@ export const TiltCourseCard = forwardRef<HTMLElement, TiltCourseCardProps>(
               fallbackTitle={course.title}
               className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             />
+            <motion.div
+              aria-hidden="true"
+              variants={{
+                hidden: { scaleX: 1 },
+                visible: {
+                  scaleX: 0,
+                  transition: {
+                    duration: 0.7,
+                    delay: 0.12,
+                    ease: EASE_OUT_EXPO,
+                  },
+                },
+              }}
+              style={{ transformOrigin: 'right center' }}
+              className="pointer-events-none absolute inset-0 bg-black z-10"
+            />
             {course.badge && (
               <motion.span
                 initial={{ opacity: 0, x: -8 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: 0.15 }}
-                className="absolute top-3 left-3 bg-white text-black border border-black font-mono text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider shadow-sm"
+                transition={{ duration: 0.35, delay: 0.25 }}
+                className="z-20 absolute top-3 left-3 bg-white text-black border border-black font-mono text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider shadow-sm"
               >
                 {course.badge}
               </motion.span>
