@@ -7,10 +7,13 @@
 }
 
 @layer base {
-  html {
+  :root,
+  html,
+  body {
+    color-scheme: only light;
     font-family: var(--font-sans);
-    background-color: #080808;
-    color: #f5f5f5;
+    background-color: #ffffff;
+    color: #000000;
   }
 
   h1, h2, h3, .font-display {
@@ -18,9 +21,31 @@
   }
 }
 
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
   }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

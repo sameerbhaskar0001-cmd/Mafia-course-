@@ -179,4 +179,4 @@ export const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-export const ABOUT_TEXT = `MAFIA COURSES is India's premier digital learning platform built to provide top-tier, premium courses at unbeatable cheap prices. Our mission is simple: deliver high-quality, practical education in AI, Business, Editing, Programming, and Ads that makes you stand out from the crowd and perform better than anyone else in the market. You will not find this level of quality anywhere else at such affordable prices.`;
+export const ABOUT_TEXT = `MAFIA COURSES is India's premier digital learning platform built to provide 6,000+ top-tier, premium courses at unbeatable cheap prices. The 6 featured masterclasses on the homepage are just the beginning—our full vault spans AI, Ads, Business, Editing, Finance, Trading, E-Commerce, and Programming so you can perform better than anyone else in the market. Message us on Telegram (@MRMAFIA0007) to get access to any course you want.`;
